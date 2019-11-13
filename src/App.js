@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+function Todo({ todo, idx}) {
+  return(
+    <div className="todo">
+      { todo.text }
     </div>
-  );
+  )
 }
 
-export default App;
+function App(){
+  const [todos, setTodos] = useState([
+    {
+      text: 'Learn about React Hooks',
+      isCompleted: false
+    },
+    {
+      text: 'Build todo App using react hooks',
+      isCompleted: false
+    },
+    {
+      text: 'Eat Dinner',
+      isCompleted: false
+    }
+  ]);
+
+  return (
+    <div className="app">
+      <div className="todo-list">
+          {todos.map((todo, idx) => (
+            <Todo 
+              key={idx}
+              index={idx}
+              todo={todo}
+            />
+          ))}
+      </div>
+    </div>
+  )
+
+
+
+}
+
+export default App
