@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import './App.css' 
 
 function Todo({ todo, index, completeTodo}) {
-  console.log("Todo", todo)
-  console.log("idx", index)
   return(
     <div style={{textDecoration: todo.isCompleted ? 'line-through' : '' }} className="todo">
       { todo.text }
